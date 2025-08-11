@@ -1,0 +1,104 @@
+.container {
+    background: white;
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 360px;
+    margin-top: 200px;
+  }
+
+  /* Скрываем радио кнопки */
+  input[type="radio"] {
+    display: none;
+  }
+
+  /* Стиль переключателей */
+  .toggle-labels {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+  }
+  .toggle-labels label {
+    cursor: pointer;
+    flex: 1;
+    padding: 12px 0;
+    font-weight: 600;
+    color: #555;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s, border-color 0.3s;
+    text-align: center;
+    user-select: none;
+  }
+  /* Активный таб */
+  #login-tab:checked + label[for="login-tab"],
+  #register-tab:checked + label[for="register-tab"] {
+    color: #3f51b5;
+    border-color: #3f51b5;
+  }
+
+  /* Формы по умолчанию скрыты */
+  form {
+    display: none;
+    flex-direction: column;
+  }
+  /* Показываем форму, когда выбран таб */
+  #login-tab:checked ~ .forms #login-form,
+  #register-tab:checked ~ .forms #register-form {
+    display: flex;
+  }
+
+  label, input, button {
+    font-family: inherit;
+  }
+
+  label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #555;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    padding: 10px 12px;
+    margin-bottom: 18px;
+    border: 1.5px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+  }
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="password"]:focus {
+    border-color: #3f51b5;
+    outline: none;
+  }
+  button {
+    padding: 12px;
+    background-color: #3f51b5;
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  button:hover {
+    background-color: #303f9f;
+  }
+  /* Ссылки внутри форм убираем */
+  .form-footer {
+    margin-top: 12px;
+    font-size: 13px;
+    color: #777;
+    text-align: center;
+  }
+  .form-footer a {
+    color: #3f51b5;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .form-footer a:hover {
+    text-decoration: underline;
+  }

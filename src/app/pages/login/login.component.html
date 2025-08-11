@@ -1,0 +1,44 @@
+<div class="container">
+    <!-- Радио кнопки для переключения -->
+    <input type="radio" id="login-tab" name="tab" checked />
+    <label for="login-tab">Вход</label>
+
+    <input type="radio" id="register-tab" name="tab" />
+    <label for="register-tab">Регистрация</label>
+
+    <div class="forms">
+      <!-- Форма Логина -->
+      <form [formGroup]="loginForm"  id="login-form" novalidate>
+        <label for="login-email">Email</label>
+        <input formControlName="emailId" type="text" id="login-email" name="email" placeholder="emailId" required />
+
+        <label for="login-password">Пароль</label>
+        <input formControlName="password" type="password" id="login-password" name="password" placeholder="Введите пароль" required />
+
+        <button type="button" (click)="onLogin()">Войти</button>
+        <div class="form-footer">
+          Нет аккаунта? <label for="register-tab" style="cursor:pointer; color:#3f51b5;">Зарегистрироваться</label>
+        </div>
+      </form>
+
+      <!-- Форма Регистрации -->
+      <form id="register-form" novalidate>
+        <label for="register-name">Имя</label>
+        <input type="text" id="register-name" name="name" placeholder="Ваше имя" required />
+
+        <label for="register-email">Email</label>
+        <input type="email" id="register-email" name="email" placeholder="example@mail.com" required />
+
+        <label for="register-password">Пароль</label>
+        <input type="password" id="register-password" name="password" placeholder="Введите пароль" required />
+
+        <label for="register-password2">Повторите пароль</label>
+        <input type="password" id="register-password2" name="password2" placeholder="Повторите пароль" required />
+
+        <button type="submit">Зарегистрироваться</button>
+        <div class="form-footer">
+          Уже есть аккаунт? <label for="login-tab" style="cursor:pointer; color:#3f51b5;">Войти</label>
+        </div>
+      </form>
+    </div>
+  </div>
