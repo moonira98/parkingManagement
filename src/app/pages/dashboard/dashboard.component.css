@@ -1,0 +1,182 @@
+/* --- Стили для input-group с селектами и кнопкой --- */
+.input-group {
+    max-width: 900px;
+    margin: 0 auto 30px auto;
+    gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  
+  .input-group .form-select {
+    flex: 1 1 180px;
+    min-width: 150px;
+    border-radius: 6px;
+    border: 1.5px solid #ced4da;
+    transition: border-color 0.3s ease;
+  }
+  
+  .input-group .form-select:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 5px rgba(13, 110, 253, 0.5);
+    outline: none;
+  }
+  
+  .input-group button.btn {
+    flex-shrink: 0;
+    padding: 0 18px;
+    height: 38px;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .input-group button.btn:hover {
+    background-color: #0b5ed7;
+    color: white;
+  }
+  
+  /* --- Статистика сверху --- */
+  .texts {
+    max-width: 900px;
+    margin: 0 auto 20px auto;
+    display: flex;
+    justify-content: space-around;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #333;
+  }
+  
+  .texts span {
+    background-color: #f8f9fa;
+    padding: 12px 25px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgb(0 0 0 / 0.1);
+    min-width: 110px;
+    text-align: center;
+  }
+  
+  /* --- Сетка парковочных мест --- */
+  .parking-layout {
+    max-width: 900px;
+    margin: 0 auto 40px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 16px;
+  }
+  
+  .parking-spot {
+    background-color: #e9ecef;
+    border-radius: 10px;
+    padding: 15px 10px;
+    cursor: pointer;
+    user-select: none;
+    box-shadow: 0 2px 5px rgb(0 0 0 / 0.1);
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    color: #333;
+  }
+  
+  .parking-spot.available {
+    background-color: #198754; /* Bootstrap green */
+    color: white;
+  }
+  
+  .parking-spot.occupied {
+    background-color: #dc3545; /* Bootstrap red */
+    color: white;
+  }
+  
+  .parking-spot:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgb(0 0 0 / 0.2);
+  }
+  
+  /* --- Модалка --- */
+  .modal-content {
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgb(0 0 0 / 0.15);
+  }
+  
+  .modal-header {
+    background-color: #0d6efd;
+    color: white;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+  
+  .modal-header .btn-close {
+    filter: brightness(0) invert(1);
+  }
+  
+  .modal-body form {
+    max-height: 60vh;
+    overflow-y: auto;
+    padding-right: 10px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    font-weight: 600;
+    color: #444;
+  }
+  
+  .form-control {
+    border-radius: 6px;
+    border: 1.5px solid #ced4da;
+    transition: border-color 0.3s ease;
+  }
+  
+  .form-control:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 5px rgba(13, 110, 253, 0.5);
+    outline: none;
+  }
+  
+  /* --- Модалка футер --- */
+  .modal-footer {
+    padding: 15px 20px;
+    border-top: 1px solid #dee2e6;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+  }
+  
+  .modal-footer .btn-primary {
+    background-color: #0d6efd;
+    border: none;
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .modal-footer .btn-primary:hover {
+    background-color: #0b5ed7;
+  }
+  
+  .modal-footer .btn-secondary {
+    border-radius: 6px;
+    font-weight: 600;
+    padding: 8px 20px;
+    border: 1.5px solid #6c757d;
+    background-color: white;
+    color: #6c757d;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .modal-footer .btn-secondary:hover {
+    background-color: #6c757d;
+    color: white;
+  }
+  

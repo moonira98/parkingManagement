@@ -8,8 +8,14 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
   http = inject(HttpClient)
-  loggedData!: IUserModel
-  constructor() { }
+  loggedUserData!: IUserModel
+  
+  constructor() { 
+    const loggedData = localStorage.getItem('parkUser')
+    if(loggedData != null) {
+      this.loggedUserData = JSON.parse(loggedData)
+    }
+  }
 
   loginUser(obj: User): Observable<IUserModel> {
     return this.http.post<IUserModel>("https://api.freeprojectapi.com/api/SmartParking/login", obj)

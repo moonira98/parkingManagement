@@ -36,7 +36,7 @@ export class LoginComponent {
     
     this.userService.loginUser(loginObj).subscribe((res: IUserModel) => {
       localStorage.setItem('parkUser', JSON.stringify(res))
-      this.userService.loggedData = res
+      this.userService.loggedUserData = res
       this.router.navigateByUrl('/dashboard')
       alert('done')
     }, error => alert('wrong'))

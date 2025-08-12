@@ -1,1 +1,140 @@
-<p>dashboard works!</p>
+<div class="input-group">
+  <select
+    class="form-select"
+    [(ngModel)]="siteId"
+    (change)="getBuildingBySiteId()"
+  >
+    <option value="0">Select Site</option>
+    @for(site of siteList; track $index) {
+    <option [value]="site.siteId">{{ site.siteName }}</option>
+    }
+  </select>
+  <select
+    [(ngModel)]="buildingId"
+    (change)="getFloorByBuildingId()"
+    class="form-select"
+  >
+    <option value="0">Select Building</option>
+    @for(item of buildingList; track $index) {
+    <option [value]="item.buildingId">{{ item.buildingName }}</option>
+    }
+  </select>
+  <select [(ngModel)]="floorId" class="form-select" (change)="onFloorSelect()">
+    <option value="0">Select Floor</option>
+    @for(item of floorList; track $index) {
+    <option [value]="item.floorId">{{ item.floorNo }}</option>
+    }
+  </select>
+  <button class="btn btn-outline-primary" type="button">
+    <i class="bi bi-search"></i>
+  </button>
+</div>
+
+<div class="texts">
+  <span>Total {{ parkingSpotArray.length }}</span>
+  <span>Available </span>
+  <span>Occupied </span>
+</div>
+
+<div class="parking-layout">
+  @for(item of parkingSpotArray; track $index) {
+  <div
+    class="parking-spot"
+    [ngClass]="checkIfSpotBooked(item) ? 'occupied' : 'available'"
+    (click)="openModal(item)"
+  >
+    <p>
+      {{ checkIfSpotBooked(item) ? item + " Occupied" : item + " Available" }}
+    </p>
+  </div>
+  }
+</div>
+
+<div #bookSpot class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Book Parking Spot</h5>
+      </div>
+
+      <div class="modal-body">
+        <form
+          novalidate=""
+          id="bookSpotForm"
+          class="ng-untouched ng-pristine ng-invalid"
+        >
+          <div class="mb-3">
+            <label class="form-label">Park Spot No</label
+            ><input
+              type="text"
+              name="parkSpotNo"
+              readonly=""
+              class="form-control ng-untouched ng-pristine ng-valid"
+              [(ngModel)]="bookSpotObj.parkSpotNo"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="vehicleNumber" class="form-label">Vehicle Number</label
+            ><input
+              type="text"
+              name="vehicleNo"
+              id="vehicleNumber"
+              placeholder="Enter vehicle number"
+              required=""
+              class="form-control ng-untouched ng-pristine ng-invalid"
+              [(ngModel)]="bookSpotObj.vehicleNo"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="vehicleType" class="form-label">Amount</label
+            ><input
+              type="number"
+              name="amount"
+              id="vehicleNumber"
+              placeholder="Enter Amount "
+              required=""
+              class="form-control ng-untouched ng-pristine ng-valid"
+              [(ngModel)]="bookSpotObj.amount"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="driverName" class="form-label">Customer Name</label
+            ><input
+              type="text"
+              name="custName"
+              id="driverName"
+              placeholder="Customer name"
+              class="form-control ng-untouched ng-pristine ng-valid"
+              [(ngModel)]="bookSpotObj.custName"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="contactNumber" class="form-label">Contact Number</label
+            ><input
+              type="text"
+              name="custMobileNo"
+              id="contactNumber"
+              placeholder="Enter contact number"
+              class="form-control ng-untouched ng-pristine ng-valid"
+              [(ngModel)]="bookSpotObj.custMobileNo"
+            />
+          </div>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="onBookSpot()">
+          Save
+        </button>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+          (click)="closeModal()"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
