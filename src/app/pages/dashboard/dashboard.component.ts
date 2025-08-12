@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, inject } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, inject } from '@angular/core';
 import { MasterService } from '../../services/master.service';
 import { IBuilding, IFloor, ISite, ResponseModel } from '../../model/user.model';
 import { FormsModule } from '@angular/forms';
@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit  {
   masterService = inject(MasterService)
   siteList: ISite[] = []
   buildingList: IBuilding[] = []

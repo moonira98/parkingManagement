@@ -4,7 +4,7 @@
     [(ngModel)]="siteId"
     (change)="getBuildingBySiteId()"
   >
-    <option value="0">Select Site</option>
+    <option value="0">Выбрать сайт</option>
     @for(site of siteList; track $index) {
     <option [value]="site.siteId">{{ site.siteName }}</option>
     }
@@ -14,13 +14,13 @@
     (change)="getFloorByBuildingId()"
     class="form-select"
   >
-    <option value="0">Select Building</option>
+    <option value="0">Выбрать здание</option>
     @for(item of buildingList; track $index) {
     <option [value]="item.buildingId">{{ item.buildingName }}</option>
     }
   </select>
   <select [(ngModel)]="floorId" class="form-select" (change)="onFloorSelect()">
-    <option value="0">Select Floor</option>
+    <option value="0">Выбрать этаж</option>
     @for(item of floorList; track $index) {
     <option [value]="item.floorId">{{ item.floorNo }}</option>
     }
@@ -31,9 +31,9 @@
 </div>
 
 <div class="texts">
-  <span>Total {{ parkingSpotArray.length }}</span>
-  <span>Available </span>
-  <span>Occupied </span>
+  <span>Всего мест {{ parkingSpotArray.length }}</span>
+  <span>Доступно </span>
+  <span>Занято </span>
 </div>
 
 <div class="parking-layout">
